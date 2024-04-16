@@ -8,6 +8,7 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
+
   .content {
     position: relative;
     overflow: hidden;
@@ -15,15 +16,18 @@
     min-width: 300px;
     min-height: 100px;
     border-radius: 7px;
+
     button {
       position: absolute;
       top: 4px;
       right: 0px;
       border: none;
       background-color: transparent;
+
       svg {
         position: relative;
       }
+
       cursor: pointer;
     }
   }
