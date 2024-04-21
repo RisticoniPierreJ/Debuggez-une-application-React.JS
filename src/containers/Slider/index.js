@@ -22,13 +22,15 @@ const Slider = () => {
         );
 
     useEffect(() => {
-        // Ajout d'un identifiant de minuterie pour pouvoir l'effacer lorsque le composant est re-rendu
-        // Mise à jour du code pour stocker l'identifiant de la minuterie retourné par nextCard dans une variable timerId
+        // Démarre une minuterie en appelant nextCard avec index et byDateDesc comme arguments
+        // et stocke l'identifiant de la minuterie retournée dans timerId
         const timerId = nextCard(index, byDateDesc);
 
-        // Ceci effacera la minuterie lorsque le composant sera re-rendu
+        // Retourne une fonction de nettoyage qui efface la minuterie
+        // Cette fonction est exécutée avant chaque nouveau rendu et avant que le composant ne soit retiré de l'interface utilisateur
         return () => clearTimeout(timerId);
-    }, [index, byDateDesc]);
+        
+    }, [index, byDateDesc]); // Exécute la fonction de rappel après le premier rendu et après chaque mise à jour si index ou byDateDesc change
 
     return (
         <div className="SlideCardList">
